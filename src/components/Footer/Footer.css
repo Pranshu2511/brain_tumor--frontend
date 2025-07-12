@@ -1,0 +1,125 @@
+.footer {
+  position: relative;
+  background-color: hsl(220, 86%, 14%);
+  color: #f0ece9;
+  padding: 2rem 1rem;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 150%;
+  height: 150%;
+  z-index: 0;
+  pointer-events: none;
+  animation: floatBrain 60s linear infinite;
+}
+
+/* Floating brains container */
+.brains-floating {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.brain {
+  position: absolute;
+  width: 90px;
+  height: 100px;
+  opacity: 0.5;
+  filter: brightness(2) contrast(1.5);
+  animation: float 6s ease-in-out infinite;
+}
+
+.brain:nth-child(1) { top: 10%; left: 5%; animation-duration: 35s; }
+.brain:nth-child(2) { top: 40%; left: 20%; animation-duration: 28s; }
+.brain:nth-child(3) { top: 70%; left: 60%; animation-duration: 30s; }
+.brain:nth-child(4) { top: 30%; left: 80%; animation-duration: 32s; }
+.brain:nth-child(5) { top: 50%; left: 40%; animation-duration: 34s; }
+
+/* Float and rotate animation */
+@keyframes float {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  50%  { transform: translateY(-20px) rotate(180deg); }
+  100% { transform: translateY(0px) rotate(360deg); }
+}
+
+/* Footer layout */
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.footer-section {
+  flex: 1;
+  padding: 1rem;
+}
+
+.footer-section h4,
+.footer-section h3 {
+  margin-bottom: 1rem;
+  color: #04b004;
+  font-size: 1.2rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+  color: #f0ece9;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #04b004;
+}
+
+/* Footer bottom */
+.footer-bottom {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 1;
+  color: #aaa;
+}
+
+/* Responsive layout */
+@media (min-width: 768px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .footer-section {
+    padding: 0 1rem;
+  }
+
+  .footer-section h4,
+  .footer-section h3 {
+    font-size: 1.4rem;
+  }
+
+  .footer-bottom {
+    font-size: 1rem;
+  }
+}
